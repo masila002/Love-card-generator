@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const os = require('os');
 
-const CACHE_DIR = path.join(__dirname, '../cache');
+const CACHE_DIR = path.join(os.tmpdir(), 'card_gen_cache');
 
 // Ensure cache directory exists
 if (!fs.existsSync(CACHE_DIR)) {
@@ -20,7 +21,7 @@ function getFromCache(name, gender, occasion) {
   try {
     const cacheKey = generateCacheKey(name, gender, occasion);
     const cachePath = path.join(CACHE_DIR, `${cacheKey}.json`);
-    
+
     if (fs.existsSync(cachePath)) {
       const data = fs.readFileSync(cachePath, 'utf8');
       const cached = JSON.parse(data);
@@ -38,7 +39,7 @@ function saveToCache(name, gender, occasion, message) {
   try {
     const cacheKey = generateCacheKey(name, gender, occasion);
     const cachePath = path.join(CACHE_DIR, `${cacheKey}.json`);
-    
+
     const data = {
       name,
       gender,
@@ -46,7 +47,7 @@ function saveToCache(name, gender, occasion, message) {
       message,
       createdAt: new Date().toISOString()
     };
-    
+
     fs.writeFileSync(cachePath, JSON.stringify(data, null, 2));
     console.log(`✓ Message cached for ${name}`);
   } catch (error) {
