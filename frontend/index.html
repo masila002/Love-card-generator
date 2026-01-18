@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Card Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Love Card Generator</h1>
+            <p>Create a personalized romantic card for your loved ones</p>
+        </div>
+
+        <div class="content">
+            <div class="form-section">
+                <form id="cardForm">
+                    <div class="form-group">
+                        <label for="occasion">Select Occasion:</label>
+                        <select id="occasion" required>
+                            <option value="">-- Choose an occasion --</option>
+                            <option value="valentine">Valentine's Day</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="anniversary">Anniversary</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Receiver's Name:</label>
+                        <input type="text" id="name" placeholder="Enter their name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Receiver's Gender:</label>
+                        <div class="gender-options">
+                            <label>
+                                <input type="radio" name="gender" value="female" required>
+                                Female
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="male" required>
+                                Male
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="textColor">Text Color:</label>
+                        <select id="textColor">
+                            <option value="auto">Auto-Detect</option>
+                            <option value="#FFFFFF">White</option>
+                            <option value="#000000">Black</option>
+                            <option value="#FF0000">Red</option>
+                            <option value="#FFD700">Gold</option>
+                            <option value="#FF1493">Deep Pink</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="generateBtn" class="btn btn-primary">
+                        Generate Card
+                    </button>
+                </form>
+            </div>
+
+            <div class="preview-section">
+                <div id="preview" class="preview-placeholder">
+                    <p>Your card will appear here...</p>
+                </div>
+
+
+
+                <button id="downloadBtn" class="btn btn-success" style="display: none;">
+                    Download Card (PNG)
+                </button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Generating your card...</p>
+        </div>
+
+        <div class="error" id="error" style="display: none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
