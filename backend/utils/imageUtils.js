@@ -160,9 +160,9 @@ async function addMessageToCard(cardPath, message, preferredColor = 'auto', occa
         <text 
           x="${metadata.width / 2}" 
           y="${startY}" 
-          font-family="Brush Script MT, cursive" 
+          font-family="Great Vibes, cursive" 
           font-size="${config.fontSize}" 
-          font-weight="bold"
+          font-weight="normal"
           fill="${textColor}" 
           text-anchor="middle"
           dominant-baseline="hanging"
